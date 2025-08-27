@@ -25,17 +25,17 @@ conn = sqlite3.connect('pruebas.db')
 # Crear cursor
 cursor = conn.cursor()
 
-# Crear tabla
-cursor.execute('''CREATE TABLE IF NOT EXISTS productos(
-    id integer primary key autoincrement not null,
-    titulo varchar(255),
-    descripcion text,
-    precio int(255)
-    );
-    ''')
+# # Crear tabla
+# cursor.execute('''CREATE TABLE IF NOT EXISTS productos(
+#     id integer primary key autoincrement not null,
+#     titulo varchar(255),
+#     descripcion text,
+#     precio int(255)
+#     );
+#     ''')
 
-# Guardar cambios
-conn.commit()
+# # Guardar cambios
+# conn.commit()
 
 # # Insertar datos
 # cursor.execute("""INSERT INTO productos VALUES(
@@ -46,6 +46,23 @@ conn.commit()
 #     );
 #     """)
 # conn.commit()
+
+# # Borrar registros
+# cursor.execute("delete from productos")
+
+# Insertar muchos productos
+listaproductos = [
+    ("Pc Nr. 01", "Buen pc", 500),
+    ("Tlf Nr. 01", "Tlf Bien", 700),
+    ("Laptop Nr. 01", "Buena Laptop", 900),
+    ("P. Base Nr. 01", "Placa Base Chevere", 400),
+    ("Tablet  Nr. 01", "Tablet Excelente", 1000),
+]
+cursor.executemany(
+    """insert into productos values(null,?,?,?) """, listaproductos)
+
+# Guardar Cambios
+conn.commit()
 
 # Listar datos
 cursor.execute("select * from productos;")
