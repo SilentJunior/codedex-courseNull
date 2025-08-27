@@ -50,19 +50,19 @@ cursor = conn.cursor()
 # # Borrar registros
 # cursor.execute("delete from productos")
 
-# Insertar muchos productos
-listaproductos = [
-    ("Pc Nr. 01", "Buen pc", 500),
-    ("Tlf Nr. 01", "Tlf Bien", 700),
-    ("Laptop Nr. 01", "Buena Laptop", 900),
-    ("P. Base Nr. 01", "Placa Base Chevere", 400),
-    ("Tablet  Nr. 01", "Tablet Excelente", 1000),
-]
-cursor.executemany(
-    """insert into productos values(null,?,?,?) """, listaproductos)
+# # Insertar muchos productos
+# listaproductos = [
+#     ("Pc Nr. 01", "Buen pc", 500),
+#     ("Tlf Nr. 01", "Tlf Bien", 700),
+#     ("Laptop Nr. 01", "Buena Laptop", 900),
+#     ("P. Base Nr. 01", "Placa Base Chevere", 400),
+#     ("Tablet  Nr. 01", "Tablet Excelente", 1000),
+# ]
+# cursor.executemany(
+#     """insert into productos values(null,?,?,?) """, listaproductos)
 
-# Guardar Cambios
-conn.commit()
+# # Guardar Cambios
+# conn.commit()
 
 # Listar datos
 cursor.execute("select * from productos;")
